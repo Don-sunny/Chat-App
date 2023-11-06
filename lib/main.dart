@@ -26,7 +26,7 @@ class App extends StatelessWidget {
         useMaterial3: true,
       ).copyWith(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color.fromARGB(255, 63, 17, 177),
+          seedColor: const Color.fromARGB(255, 94, 177, 17),
         ),
       ),
       home: StreamBuilder(

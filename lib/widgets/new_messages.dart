@@ -45,29 +45,40 @@ class _NewMessageState extends State<NewMessage> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(
-        left: 15,
-        right: 1,
-        bottom: 14,
-      ),
-      child: Row(
-        children: [
-          Expanded(
-            child: TextField(
-              controller: messageEditinController,
-              textCapitalization: TextCapitalization.sentences,
-              autocorrect: true,
-              enableSuggestions: true,
-              decoration:
-                  const InputDecoration(labelText: 'Send a message....'),
-            ),
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        padding: const EdgeInsets.only(left: 10),
+        height: 50,
+        width: double.infinity,
+        decoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.primary.withOpacity(0.2),
+          borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.only(top: 8),
+          child: Row(
+            children: [
+              Expanded(
+                child: TextField(
+                  controller: messageEditinController,
+                  textCapitalization: TextCapitalization.sentences,
+                  autocorrect: true,
+                  enableSuggestions: true,
+                  decoration: const InputDecoration(
+                    hintText: 'Send a message....',
+                    border: InputBorder.none,
+                  ),
+                ),
+              ),
+              IconButton(
+                color: Theme.of(context).colorScheme.primary,
+                onPressed: _submitMessage,
+                icon: const Icon(Icons.send),
+              )
+            ],
           ),
-          IconButton(
-            color: Theme.of(context).colorScheme.primary,
-            onPressed: _submitMessage,
-            icon: const Icon(Icons.send),
-          )
-        ],
+        ),
       ),
     );
   }
